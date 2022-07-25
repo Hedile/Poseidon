@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.openclassrooms.poseidon.model.Rating;
 @Repository
 public interface RatingRepository extends JpaRepository<Rating, Integer> {
-
+	Rating findRatingById(int id);
+    
 }

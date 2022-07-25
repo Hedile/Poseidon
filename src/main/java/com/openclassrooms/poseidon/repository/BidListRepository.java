@@ -8,5 +8,5 @@ import com.openclassrooms.poseidon.model.BidList;
 @Repository
 public interface BidListRepository extends JpaRepository<BidList, Integer> {
 	BidList findBidListById(int id);
-	
+	   
 }

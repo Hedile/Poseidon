@@ -8,5 +8,8 @@ import com.openclassrooms.poseidon.model.CurvePoint;
 
 @Repository
 public interface CurvePointRepository extends JpaRepository<CurvePoint, Integer> {
+	 CurvePoint findCurvePointById(int id);
 
+	   
+	
 }
