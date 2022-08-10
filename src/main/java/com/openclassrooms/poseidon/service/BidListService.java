@@ -11,22 +11,15 @@ import org.springframework.stereotype.Service;
 import com.openclassrooms.poseidon.model.BidList;
 import com.openclassrooms.poseidon.repository.BidListRepository;
 
+import lombok.AllArgsConstructor;
 
 
+@AllArgsConstructor
 @Service
 public class BidListService {
 	 @Autowired
 	  private  BidListRepository bidListRepository;
 
-	    public BidListService() {
-		super();
-		
-	}
-
-		public BidListService(BidListRepository bidListRepository) {
-			super();
-			this.bidListRepository = bidListRepository;
-		}
 		  public BidList getBidListById(Integer id) {
 		        return bidListRepository.findBidListById(id);
 		    }

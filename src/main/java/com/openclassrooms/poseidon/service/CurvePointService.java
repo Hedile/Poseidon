@@ -6,9 +6,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.openclassrooms.poseidon.exception.NegativeNumberException;
-import com.openclassrooms.poseidon.model.BidList;
 import com.openclassrooms.poseidon.model.CurvePoint;
 import com.openclassrooms.poseidon.repository.CurvePointRepository;
 

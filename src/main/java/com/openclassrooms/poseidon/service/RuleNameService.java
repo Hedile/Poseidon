@@ -13,18 +13,6 @@ public class RuleNameService {
 	@Autowired
 	 private  RuleNameRepository ruleNameRepository;
 
-	   
-	    public RuleNameService() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-
-		public RuleNameService(RuleNameRepository ruleNameRepository) {
-			super();
-			this.ruleNameRepository = ruleNameRepository;
-		}
-
 
 		public void validateRuleName(RuleName ruleName){
 

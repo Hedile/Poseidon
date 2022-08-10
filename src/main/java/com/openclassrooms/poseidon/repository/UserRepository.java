@@ -12,5 +12,5 @@ import com.openclassrooms.poseidon.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>, JpaSpecificationExecutor<User> {
 	User findUserById(int id);
-	
+	 User findUserByUsername(String username);
 }

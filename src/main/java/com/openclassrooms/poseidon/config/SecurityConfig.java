@@ -33,7 +33,9 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 	    @Override
 	    public void configure(HttpSecurity http) throws Exception {
 	        http.authorizeRequests().antMatchers("/").permitAll()
-	                        .antMatchers("/bidList/**", "/rating/**", "/ruleName/**", "/trade/**", "/curvePoint/**","/user/**").hasAnyAuthority("USER", "ADMIN")
+	                        .antMatchers("/bidList/**", "/rating/**", "/ruleName/**", "/trade/**", "/curvePoint/**").hasAnyAuthority("USER", "ADMIN")
+	                        .antMatchers("/user/**")
+	                        .hasAnyAuthority("ADMIN")
 	                        .anyRequest()
 	                        .authenticated()
 	                .and()
@@ -42,8 +44,14 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 	                .and()
 	                .oauth2Login().defaultSuccessUrl("/bidList/list")
 	                .and()
-	                .logout()
-	                .logoutSuccessUrl("/login");
+	                .logout().logoutUrl("/app-logout")
+			                .clearAuthentication(true)
+		                    .invalidateHttpSession(true)
+		                    .deleteCookies("JSESSIONID")
+		                    .logoutSuccessUrl("/")
+					        .and().exceptionHandling()
+				            .accessDeniedPage("/app/error");
+
 	    }
 
 	    @Bean

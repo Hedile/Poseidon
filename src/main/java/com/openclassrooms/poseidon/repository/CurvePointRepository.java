@@ -10,6 +10,6 @@ import com.openclassrooms.poseidon.model.CurvePoint;
 public interface CurvePointRepository extends JpaRepository<CurvePoint, Integer> {
 	 CurvePoint findCurvePointById(int id);
 
-	   
+	 CurvePoint findCurvePointByCurveIdAndTermAndValue(Integer curveId, double term, double value );  
 	
 }

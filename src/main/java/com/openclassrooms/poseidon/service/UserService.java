@@ -14,8 +14,6 @@ public class UserService {
 	@Autowired
 	UserRepository userRepo;
 	
-	
-	
 
 	public User getUserById(Integer id)  {
 		return userRepo.findUserById(id);

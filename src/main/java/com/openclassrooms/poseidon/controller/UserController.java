@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.openclassrooms.poseidon.model.User;
 import com.openclassrooms.poseidon.repository.UserRepository;
 
-import javax.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 
+import javax.validation.Valid;
+@Slf4j
 @Controller
 public class UserController {
     @Autowired
@@ -24,12 +26,14 @@ public class UserController {
     @RequestMapping("/user/list")
     public String home(Model model)
     {
+    	 log.info("home: show user/list");
         model.addAttribute("users", userRepository.findAll());
         return "user/list";
     }
 
     @GetMapping("/user/add")
     public String addUser(User bid) {
+    	 log.info("addUser: show user/add");
         return "user/add";
     }
 

@@ -8,5 +8,5 @@ import com.openclassrooms.poseidon.model.Rating;
 @Repository
 public interface RatingRepository extends JpaRepository<Rating, Integer> {
 	Rating findRatingById(int id);
-    
+	Rating findIdByMoodysRatingAndOrderNumber(String moodysRating, Integer orderNumber);
 }

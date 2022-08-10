@@ -2,13 +2,12 @@ package com.openclassrooms.poseidon.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
-import java.sql.Timestamp;
 @Data
 @Entity
 @Table(name = "rating")
