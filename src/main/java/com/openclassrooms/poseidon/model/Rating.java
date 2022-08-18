@@ -1,12 +1,11 @@
 package com.openclassrooms.poseidon.model;
-
+import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
-
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import lombok.Data;
+
 
 @Data
 @Entity
@@ -17,13 +16,13 @@ public class Rating {
 	 @Column(name = "id")
 	    private Integer id;
 	 @Column(name = "moodysRating")
-	    @NotEmpty(message = "Moodys Rating is mandatory")
+	    @NotBlank(message = "Moodys Rating is mandatory")
 	    private String moodysRating;
 	 @Column(name = "sandPRating")
-	    @NotEmpty(message = "Sand Rating is mandatory")
+	    @NotBlank(message = "Sand Rating is mandatory")
 	    private String sandPRating;
 	  @Column(name = "fitchRating")
-	    @NotEmpty(message = "Fitch Rating is mandatory")
+	    @NotBlank(message = "Fitch Rating is mandatory")
 	    private String fitchRating;
 	  @Column(name = "orderNumber")
 	    @NotNull(message = "Order Number is mandatory")
@@ -39,7 +38,6 @@ public class Rating {
 
 		public Rating() {
 			super();
-			// TODO Auto-generated constructor stub
 		}
 	
 }

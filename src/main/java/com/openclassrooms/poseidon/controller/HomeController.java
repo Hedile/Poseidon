@@ -19,5 +19,5 @@ public class HomeController
 		return "redirect:/bidList/list";
 	}
 
-
+	
 }

@@ -43,8 +43,8 @@ public class RatingController {
     @PostMapping("/rating/validate")
     public String validate(@Valid Rating rating, BindingResult result, Model model,RedirectAttributes redirectAttributes) {
     	 if(result.hasErrors()) {
-    		 log.error("There ere errors in the form=" + result.getAllErrors());
-             model.addAttribute("rating", rating);
+    		 log.error("There ere errors in the form");
+             //model.addAttribute("rating", rating);
     	 } else {
              ratingService.validateRating(rating);
              log.debug("Creating new rating="+ rating);
@@ -72,7 +72,7 @@ public class RatingController {
                              BindingResult result, Model model, RedirectAttributes redirectAttributes) {
     	  log.info("updateRating: " + id);
           if(result.hasErrors()){
-        	  log.error("There ere errors in the form=" + result.getAllErrors());
+        	  log.error("There ere errors in the form");
               model.addAttribute("rating", rating);
           } else {
               ratingService.updateRating(id, rating);

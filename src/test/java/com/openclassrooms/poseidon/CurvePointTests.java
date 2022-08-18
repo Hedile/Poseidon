@@ -7,6 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 
 import com.openclassrooms.poseidon.model.CurvePoint;
 import com.openclassrooms.poseidon.repository.CurvePointRepository;
@@ -29,6 +30,7 @@ public class CurvePointTests {
 		curvePointRepository.deleteAll();
 	}
 	@Test
+
 	public void curvePointTest() {
 		CurvePoint curvePoint = new CurvePoint(10, 10d, 30d);
 

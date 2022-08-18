@@ -32,27 +32,29 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
 	    @Override
 	    public void configure(HttpSecurity http) throws Exception {
-	        http.authorizeRequests().antMatchers("/").permitAll()
-	                        .antMatchers("/bidList/**", "/rating/**", "/ruleName/**", "/trade/**", "/curvePoint/**").hasAnyAuthority("USER", "ADMIN")
-	                        .antMatchers("/user/**")
-	                        .hasAnyAuthority("ADMIN")
+	        http.csrf().disable()
+	        .authorizeRequests().antMatchers("/").permitAll()
+	                        .antMatchers("/bidList/**", "/rating/**", "/ruleName/**", "/trade/**", "/curvePoint/**").hasAnyAuthority("USER", "ADMIN","ROLE_USER")
+	                       .antMatchers("/user/**")
+	                       .hasAuthority("ADMIN")
 	                        .anyRequest()
 	                        .authenticated()
-	                .and()
-	                .formLogin()
-	                .defaultSuccessUrl("/bidList/list")
-	                .and()
-	                .oauth2Login().defaultSuccessUrl("/bidList/list")
-	                .and()
-	                .logout().logoutUrl("/app-logout")
-			                .clearAuthentication(true)
-		                    .invalidateHttpSession(true)
-		                    .deleteCookies("JSESSIONID")
-		                    .logoutSuccessUrl("/")
-					        .and().exceptionHandling()
-				            .accessDeniedPage("/app/error");
+	                        .and()
+	    	                .formLogin()
+	    	                .defaultSuccessUrl("/bidList/list")
+	    	                .and()
+	    	                .oauth2Login().defaultSuccessUrl("/bidList/list")
+	    	                .and()
+	    	                .logout().logoutUrl("/app-logout")
+	    			                .clearAuthentication(true)
+	    		                    .invalidateHttpSession(true)
+	    		                    .deleteCookies("JSESSIONID")
+	    		                    .logoutSuccessUrl("/")
+	    					        .and().exceptionHandling()
+	    				            .accessDeniedPage("/app/error");
 
-	    }
+	       
+	            }
 
 	    @Bean
 	    public PasswordEncoder passwordEncoder () {
