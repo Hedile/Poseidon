@@ -40,19 +40,20 @@ public class RatingController {
         return "rating/add";
     }
 
-    @PostMapping("/rating/validate")
-    public String validate(@Valid Rating rating, BindingResult result, Model model,RedirectAttributes redirectAttributes) {
-    	 if(result.hasErrors()) {
-    		 log.error("There ere errors in the form");
-             //model.addAttribute("rating", rating);
-    	 } else {
-             ratingService.validateRating(rating);
-             log.debug("Creating new rating="+ rating);
-             redirectAttributes.addFlashAttribute("success", "Rating successfully added");
-             return "redirect:/rating/list";
-    	 }
-             return "rating/add";
-    	    }
+	@PostMapping("/rating/validate")
+	public String validate(@Valid Rating rating, BindingResult result, Model model,
+			RedirectAttributes redirectAttributes) {
+		if (result.hasErrors()) {
+			log.error("There ere errors in the form");
+			// model.addAttribute("rating", rating);
+		} else {
+			ratingService.validateRating(rating);
+			log.debug("Creating new rating=" + rating);
+			redirectAttributes.addFlashAttribute("success", "Rating successfully added");
+			return "redirect:/rating/list";
+		}
+		return "rating/add";
+	}
 
     @GetMapping("/rating/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model, RedirectAttributes redirectAttributes) {

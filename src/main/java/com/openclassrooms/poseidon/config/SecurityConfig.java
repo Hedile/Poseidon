@@ -35,13 +35,10 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 	        http.csrf().disable()
 	        .authorizeRequests().antMatchers("/").permitAll()
 	                        .antMatchers("/bidList/**", "/rating/**", "/ruleName/**", "/trade/**", "/curvePoint/**").hasAnyAuthority("USER", "ADMIN","ROLE_USER")
-	                       .antMatchers("/user/**")
-	                       .hasAuthority("ADMIN")
-	                        .anyRequest()
-	                        .authenticated()
+	                        .antMatchers("/user/**").hasAuthority("ADMIN")
+	                        .anyRequest().authenticated()
 	                        .and()
-	    	                .formLogin()
-	    	                .defaultSuccessUrl("/bidList/list")
+	    	                .formLogin() .defaultSuccessUrl("/bidList/list")
 	    	                .and()
 	    	                .oauth2Login().defaultSuccessUrl("/bidList/list")
 	    	                .and()
@@ -50,8 +47,8 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 	    		                    .invalidateHttpSession(true)
 	    		                    .deleteCookies("JSESSIONID")
 	    		                    .logoutSuccessUrl("/")
-	    					        .and().exceptionHandling()
-	    				            .accessDeniedPage("/app/error");
+	    					.and().exceptionHandling().accessDeniedPage("/app/error");
+	    				            
 
 	       
 	            }

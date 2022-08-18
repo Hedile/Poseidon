@@ -47,7 +47,7 @@ public class BidListController {
 
 		if (result.hasErrors()) {
 
-			log.error("There are errors in the form");
+			log.error("There are errors in the form=" + result.getAllErrors());
 			model.addAttribute("bidList", bid);
 		} else {
 			bidListService.createNewBidList(bid);

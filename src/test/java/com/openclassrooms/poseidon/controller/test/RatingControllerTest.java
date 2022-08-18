@@ -44,7 +44,7 @@ public class RatingControllerTest {
         // Add
         mockMvc.perform(post("/rating/validate")
                         .param("moodysRating", "new moody")
-                        .param("sendPRating", "new sendP")
+                        .param("sandPRating", "new sendP")
                         .param("fitchRating", "fitchRating")
                         .param("orderNumber", "100")
                         .accept(MediaType.ALL))
@@ -60,7 +60,7 @@ public class RatingControllerTest {
         // Update
         mockMvc.perform(post("/rating/update/{id}", id)
                         .param("moodysRating", "update moody")
-                        .param("sendPRating", "update sendP")
+                        .param("sandPRating", "update sendP")
                         .param("fitchRating", "fitchRating")
                         .param("orderNumber", "100")
                         .accept(MediaType.ALL))
