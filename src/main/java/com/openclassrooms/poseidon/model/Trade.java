@@ -2,6 +2,8 @@ package com.openclassrooms.poseidon.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
@@ -13,10 +15,16 @@ import java.sql.Timestamp;
 public class Trade {
 	 @Id
 	    @GeneratedValue(strategy= GenerationType.IDENTITY)
-	    private int  tradeId;
-
+	   @Column(name = "TradeId")
+	    private Integer  id;
+	 @Column(name = "account")
+	    @NotEmpty(message = "Account is mandatory")
 	    private String account;
+	 @Column(name = "type")
+	    @NotEmpty(message = "Type is mandatory")
 	    private String type;
+	 @Column(name = "buyQuantity")
+	    @NotNull(message = "Buy quantity is mandatory")
 	    private double buyQuantity;
 	    private double sellQuantity;
 	    private double buyPrice;
@@ -41,4 +49,10 @@ public class Trade {
 	        this.account = account;
 	        this.buyQuantity = buyQuantity;
 	    }
+
+		public Trade() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+	    
 }
