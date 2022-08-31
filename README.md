@@ -8,7 +8,7 @@ A financial stock Application. The project goal is to resume a project and make 
 
 
 ## Technical:
-* le SGBD MySQL
+* SGBD MySQL
 * Java 8
 * Spring Boot 
 * Thymeleaf
